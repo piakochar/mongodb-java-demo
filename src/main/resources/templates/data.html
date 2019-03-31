@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'look at all this data, ' + ${name} + '!'" />
+    <p th:text="'you have ' + ${count} + ' documents in the ' + ${collName} + ' collection in the ' + ${dbName} + ' database!'"/>
+</body>
+</html>
