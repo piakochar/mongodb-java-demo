@@ -13,13 +13,11 @@ public class ApplicationContext implements InitializingBean, DisposableBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         _client = MongoClients.create(Application.MONGODB_CONNECTION_STRING);
-        System.out.println("Just connected to the db!");
     }
 
     @Override
     public void destroy() throws Exception {
         _client.close();
-        System.out.println("Closed connection to db!");
     }
 
     public static MongoClient getMongoClient() {

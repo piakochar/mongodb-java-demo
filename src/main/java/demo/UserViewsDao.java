@@ -10,6 +10,8 @@ import java.util.Optional;
 import org.bson.Document;
 
 /**
+ * This class interacts with the userViews collection in the siteData db.
+ *
  * Note: DAO stands for Data Access Object. The purpose of this type of class is to provide separation between database
  * interactions and the business logic of an application, and provide a reliable interface for interacting with the
  * database.

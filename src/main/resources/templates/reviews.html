@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Here are the most recent reviews of your site!</h1>
+    <table>
+        <thead>
+        <tr>
+            <th> User </th>
+            <th> Review </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${reviews.empty}">
+            <td colspan="2"> No Reviews Yet! </td>
+        </tr>
+        <tr th:each="review : ${reviews}">
+            <td><span th:text="${review.username}"> Title </span></td>
+            <td><span th:text="${review.content}"> Author </span></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
