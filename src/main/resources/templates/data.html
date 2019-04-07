@@ -5,14 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'look at all this data, ' + ${name} + '!'" />
-    <p th:text="'you have ' + ${count} + ' documents in the ' + ${collName} + ' collection in the ' + ${dbName} + ' database!'"/>
+    <p th:text="'There are ' + ${count} + ' documents in the ' + ${collName} + ' collection in the ' + ${dbName} + ' database!'"/>
 
-    <h1>What do you think of our data?!</h1>
+    <h1>What do you think of our site?!</h1>
     <form action="#" th:action="@{/data}" th:object="${review}" method="post">
         <p>Username: <input type="text" th:field="*{username}" /></p>
         <p>Message: <input type="text" th:field="*{content}" /></p>
         <p><input type="submit" value="Submit" /></p>
     </form>
+    <p><a href="/">Home Page</a></p>
 </body>
 </html>

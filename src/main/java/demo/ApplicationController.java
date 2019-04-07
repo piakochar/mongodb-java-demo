@@ -1,8 +1,11 @@
 package demo;
 
+import demo.dao.GenericDao;
+import demo.dao.ReviewsDao;
+import demo.dao.ViewsDao;
+import demo.model.Review;
 import java.util.Date;
-import java.util.Optional;
-import org.bson.Document;
+import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,18 +19,16 @@ public class ApplicationController {
 
     @GetMapping("/data")
     public String greeting(
-            @RequestParam(name="name", required=false, defaultValue="anonymous") String name,
-            @RequestParam(name="db", required=false, defaultValue="test") String dbName,
-            @RequestParam(name="collection", required=false, defaultValue="bechdel") String collName,
+            @RequestParam(name="db", required=false, defaultValue="siteData") String dbName,
+            @RequestParam(name="collection", required=false, defaultValue="views") String collName,
             Model model) {
 
-        UserViewsDao.saveUserView(name, new Date(), dbName, collName);
+        ViewsDao.saveCollectionView(new Date(), dbName, collName);
         final GenericDao dao = new GenericDao(dbName, collName);
 
         model.addAttribute("dbName", dbName);
         model.addAttribute("collName", collName);
         model.addAttribute("count", dao.countDocuments());
-        model.addAttribute("name", name);
         model.addAttribute("review", new Review());
 
         return "data";
@@ -40,15 +41,13 @@ public class ApplicationController {
         return new RedirectView("/reviews");
     }
 
-    @GetMapping("/userViews")
+    @GetMapping("/views")
     public String userViews(Model model) {
 
-        final Optional<Document> lastViewer = UserViewsDao.getMostRecentViewer();
-        final String viewerName = lastViewer.isPresent() ? lastViewer.get().getString(UserViewsDao.USER_FIELD) : "nobody!";
+        final Map<String, Integer> viewsByNamespace = ViewsDao.getViewsByNamespace();
+        model.addAttribute("viewsByNamespace", viewsByNamespace);
 
-        model.addAttribute("user", viewerName);
-
-        return "userViews";
+        return "views";
     }
 
     @GetMapping("/reviews")

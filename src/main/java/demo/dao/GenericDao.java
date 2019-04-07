@@ -1,7 +1,8 @@
-package demo;
+package demo.dao;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import demo.ApplicationContext;
 import org.bson.Document;
 
 /**

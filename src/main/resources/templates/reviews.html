@@ -14,14 +14,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${reviews.empty}">
-            <td colspan="2"> No Reviews Yet! </td>
-        </tr>
-        <tr th:each="review : ${reviews}">
-            <td><span th:text="${review.username}"> Title </span></td>
-            <td><span th:text="${review.content}"> Author </span></td>
-        </tr>
+            <tr th:if="${reviews.empty}">
+                <td colspan="2"> No Reviews Yet! </td>
+            </tr>
+            <tr th:each="review : ${reviews}">
+                <td><span th:text="${review.username}"> Title </span></td>
+                <td><span th:text="${review.content}"> Author </span></td>
+            </tr>
         </tbody>
     </table>
+
+    <p><a href="/">Home Page</a></p>
 </body>
 </html>

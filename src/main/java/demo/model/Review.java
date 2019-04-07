@@ -1,5 +1,6 @@
-package demo;
+package demo.model;
 
+import demo.dao.ReviewsDao;
 import java.util.Date;
 import org.bson.Document;
 

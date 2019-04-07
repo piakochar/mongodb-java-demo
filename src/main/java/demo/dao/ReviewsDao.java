@@ -1,19 +1,19 @@
-package demo;
+package demo.dao;
 
 
 import static com.mongodb.client.model.Sorts.descending;
 import static com.mongodb.client.model.Sorts.orderBy;
 
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoIterable;
+import demo.ApplicationContext;
+import demo.model.Review;
 import java.util.LinkedList;
 import java.util.List;
 import org.bson.Document;
 
 /**
- * This class interacts with the userViews collection in the siteData db.
+ * This class interacts with the reviews collection in the siteData db.
  *
  * Note: DAO stands for Data Access Object. The purpose of this type of class is to provide separation between database
  * interactions and the business logic of an application, and provide a reliable interface for interacting with the
