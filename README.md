@@ -11,6 +11,9 @@ would navigate to '/data?db=animals&collection=snails'.
 2. /views - displays the number of views each collection has had to date.
 3. /reviews - displays reviews left by users.
 
+This application creates a `siteData` database in your cluster and stores information about page views and user
+reviews there.
+
 ## Running the Application
 
 This application runs on port 8081 by default. This can be changed in the resource/application.properties file.
