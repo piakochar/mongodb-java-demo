@@ -21,8 +21,8 @@ This application runs on port 8081 by default. This can be changed in the resour
 For the application to connect to your cluster, you need to update the MONGODB_CONNECTION_STRING variable in 
 Application.java to match the connection string for your cluster. You'll also need to whitelist the IP address
 you're running the application from, and add a MongoDB database user to your Atlas project. Instructions on how to do
-these things can be found here: https://docs.atlas.mongodb.com/driver-connection/. For your driver version, select
-language Java and version 3.6 or later.
+these things can be found here: https://docs.atlas.mongodb.com/driver-connection/. On step 5 of these instructions, select
+Java as your driver language and version 3.6 or later.
 
 Once you've done this, run the following command from the src directory of this application to run it:
 `mvn spring-boot:run`. Then, open your browser and navigate to `localhost:8081` and you should see the homepage.
