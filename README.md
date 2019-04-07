@@ -16,6 +16,8 @@ reviews there.
 
 ## Running the Application
 
+This application requires Java 11 and Maven 3.6.
+
 This application runs on port 8081 by default. This can be changed in the resource/application.properties file.
 
 For the application to connect to your cluster, you need to update the MONGODB_CONNECTION_STRING variable in 
@@ -26,3 +28,6 @@ Java as your driver language and version 3.6 or later.
 
 Once you've done this, run the following command from the src directory of this application to run it:
 `mvn spring-boot:run`. Then, open your browser and navigate to `localhost:8081` and you should see the homepage.
+
+## Resources
+This application uses the Spring framework to manage setup and routing for the web application, and the synchronous MongoDB Java Driver ([docs](http://mongodb.github.io/mongo-java-driver/3.10/)) to interface with the database.
