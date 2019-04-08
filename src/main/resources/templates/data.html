@@ -9,10 +9,6 @@
     <h2>Data Count</h2>
     <div class="body-center">
         <p th:text="'There are ' + ${count} + ' documents in the ' + ${collName} + ' collection in the ' + ${dbName} + ' database!'"/>
-        <p>
-            To see how many documents are in other collections set query parameters "db" and "collection" in the URL.
-            Eg. /data?db=animals&collection=dogs to see the dogs collection in the animal db.
-        </p>
         <a class="button" href="/">Home Page</a>
     </div>
 </body>
