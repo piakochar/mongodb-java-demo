@@ -4,7 +4,7 @@ tailor it to your data!
 
 ## Overview
 
-Aside from the home page, are three pages on this site so far:
+Aside from the home page, are three pages on this site so far (corresponding code can be found in ApplicationController.java):
 1. /data - displays a count of the number of documents in the specified database and collection, which are taken in
 as query parameters. For example, if you wanted to view the count for the snails collection in the animals db, you
 would navigate to '/data?db=animals&collection=snails'.
