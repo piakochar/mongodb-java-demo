@@ -1,28 +1,32 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <title>Views</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <table>
-        <thead>
-        <tr>
-            <th> Namespace </th>
-            <th> View Count </th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:if="${viewsByNamespace.empty}">
-                <td colspan="2"> No Views Yet! </td>
+    <h2>Site Views</h2>
+    <div class="body-center">
+        <table>
+            <thead>
+            <tr>
+                <th> Namespace </th>
+                <th> View Count </th>
             </tr>
-            <tr th:each="view : ${viewsByNamespace}">
-                <td th:text="${view.key}">hello</td>
-                <td th:text="${view.value}">hi</td>
-            </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <tr th:if="${viewsByNamespace.empty}">
+                    <td colspan="2"> No Views Yet! </td>
+                </tr>
+                <tr th:each="view : ${viewsByNamespace}">
+                    <td th:text="${view.key}">hello</td>
+                    <td th:text="${view.value}">hi</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <p><a href="/">Home Page</a></p>
+        <p><a class="button" href="/">Home Page</a></p>
+    </div>
 </body>
 </html>

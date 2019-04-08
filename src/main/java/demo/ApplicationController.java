@@ -17,6 +17,13 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class ApplicationController {
 
+    @GetMapping("/")
+    public String homePage(Model model) {
+        model.addAttribute("review", new Review());
+
+        return "homepage";
+    }
+
     @GetMapping("/data")
     public String greeting(
             @RequestParam(name="db", required=false, defaultValue="siteData") String dbName,

@@ -1,29 +1,31 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
     <title>Reviews</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <h1>Here are the most recent reviews of your site!</h1>
-    <table>
-        <thead>
-        <tr>
-            <th> User </th>
-            <th> Review </th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:if="${reviews.empty}">
-                <td colspan="2"> No Reviews Yet! </td>
+    <h2>Recent Reviews</h2>
+    <div class="body-center">
+        <table>
+            <thead>
+            <tr>
+                <th> User </th>
+                <th> Review </th>
             </tr>
-            <tr th:each="review : ${reviews}">
-                <td><span th:text="${review.username}"> Title </span></td>
-                <td><span th:text="${review.content}"> Author </span></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <p><a href="/">Home Page</a></p>
+            </thead>
+            <tbody>
+                <tr th:if="${reviews.empty}">
+                    <td colspan="2"> No Reviews Yet! </td>
+                </tr>
+                <tr th:each="review : ${reviews}">
+                    <td><span th:text="${review.username}"> Title </span></td>
+                    <td><span th:text="${review.content}"> Author </span></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a class="button" href="/">Home Page</a></p>
+    </div>
 </body>
 </html>

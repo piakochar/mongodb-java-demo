@@ -1,18 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <title>Data</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'There are ' + ${count} + ' documents in the ' + ${collName} + ' collection in the ' + ${dbName} + ' database!'"/>
-
-    <h1>What do you think of our site?!</h1>
-    <form action="#" th:action="@{/data}" th:object="${review}" method="post">
-        <p>Username: <input type="text" th:field="*{username}" /></p>
-        <p>Message: <input type="text" th:field="*{content}" /></p>
-        <p><input type="submit" value="Submit" /></p>
-    </form>
-    <p><a href="/">Home Page</a></p>
+    <h2>Data Count</h2>
+    <div class="body-center">
+        <p th:text="'There are ' + ${count} + ' documents in the ' + ${collName} + ' collection in the ' + ${dbName} + ' database!'"/>
+        <p>
+            To see how many documents are in other collections set query parameters "db" and "collection" in the URL.
+            Eg. /data?db=animals&collection=dogs to see the dogs collection in the animal db.
+        </p>
+        <a class="button" href="/">Home Page</a>
+    </div>
 </body>
 </html>
