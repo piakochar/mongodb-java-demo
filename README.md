@@ -6,7 +6,7 @@ tailor it to your data!
 ## Setup
 This application requires git, Java 11 and Maven 3.6. Follow the setup instructions below for the relevant OS.
 
-#####OSX
+##### OSX
 + Install IDE of your choice
     + [Sublime](http://docs.sublimetext.info/en/latest/getting_started/install.html#id2)
     + [Eclipse](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-macosx-cocoa-x86_64.dmg)
@@ -34,7 +34,7 @@ This application requires git, Java 11 and Maven 3.6. Follow the setup instructi
     + `git clone git@github.com:piakochar/mongodb-java-demo.git`
     + OR see detailed instructions for cloning an existing repository [here](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
 
-#####Windows
+##### Windows
 + Install IDE of your choice
     + [Sublime](http://docs.sublimetext.info/en/latest/getting_started/install.html#id1)
     + [Eclipse](http://docs.sublimetext.info/en/latest/getting_started/install.html#id1)
