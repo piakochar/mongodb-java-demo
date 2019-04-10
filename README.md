@@ -1,9 +1,62 @@
+# mongodb-java-demo
 This web app connects to your MongoDB Atlas cluster and uses your data to populate the different web pages. 
 It is designed to be a basic demo of how to interact with your data - so clone it, play around with it and 
 tailor it to your data!
 
-## Overview
+## Setup
+This application requires git, Java 11 and Maven 3.6. Follow the setup instructions below for the relevant OS.
 
+#### OSX
++ Install IDE of your choice
+    + [Sublime](http://docs.sublimetext.info/en/latest/getting_started/install.html#id2)
+    + [Eclipse](https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-macosx-cocoa-x86_64.dmg)
+    + [IntelliJ Community](https://www.jetbrains.com/idea/download/#section=mac)
+    + [Visual Studio Code](https://code.visualstudio.com/download)
++ Install HomeBrew
+    + `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+    + OR see detailed install instructions [here](https://docs.brew.sh/Installation)
++ Install JDK
+    + `curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh`
+    + `jabba install adopt@1.11.0-1`
+    + `jabba alias default adopt@1.11.0-1`
+    + `jabba use default`
+    + Confirm that running `java -version` has `11.0.1` in the output
++ Install Maven
+    + `brew install mvn`
+    + OR see detailed install instructions [here](https://maven.apache.org/install.html)
++ If you haven't already installed git
+    + `brew install git`
+    + Create or login to your Github account [here](https://github.com/)
+    + Follow instructions [here](https://gist.github.com/adamjohnson/5682757) to create a new SSH key for your Github account.
+    + Restart terminal session for changes to take effect 
++ Clone this repo
+    + `cd [wherever you want the repo]`
+    + `git clone git@github.com:piakochar/mongodb-java-demo.git`
+    + OR see detailed instructions for cloning an existing repository [here](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+
+#### Windows
++ Install IDE of your choice
+    + [Sublime](http://docs.sublimetext.info/en/latest/getting_started/install.html#id1)
+    + [Eclipse](http://docs.sublimetext.info/en/latest/getting_started/install.html#id1)
+    + [IntelliJ Community](https://www.jetbrains.com/idea/download/#section=windows)
+    + [Visual Studio Code](https://code.visualstudio.com/download)
++ Install JDK
+    + Follow installation instructions [here](https://docs.oracle.com/en/java/javase/11/install/installation-jdk-microsoft-windows-platforms.html#GUID-DAF345BA-B3E7-4CF2-B87A-B6662D691840)
+    + Confirm that running `java -version` has `11.0.1` in the output
++ Install Maven
+    + Follow installation instructions [here](https://maven.apache.org/install.html)
++ If you haven't already installed git
+    + Follow Windows download instructions [here](https://git-scm.com/downloads)
+    + Use all defaults EXCEPT for choosing `Git from the command line and 3rd party software` which will automatically 
+    add Git to PATH
+    + Follow instructions [here](https://gist.github.com/adamjohnson/5682757) to create a new SSH key for your (potentially new) Github account
+    + Restart Command Prompt session for changes to take effect 
++ Clone this repo
+    + `chdir [wherever you want the repo]`
+    + `git clone git@github.com:piakochar/mongodb-java-demo.git`
+    + Or see detailed instructions for cloning an existing repository [here](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+
+## Overview
 Aside from the home page, are three pages on this site so far (corresponding code can be found in ApplicationController.java):
 1. /data - displays a count of the number of documents in the specified database and collection, which are taken in
 as query parameters. For example, if you wanted to view the count for the snails collection in the animals db, you
@@ -15,9 +68,6 @@ This application creates a `siteData` database in your cluster and stores inform
 reviews there.
 
 ## Running the Application
-
-This application requires Java 11 and Maven 3.6.
-
 This application runs on port 8081 by default. This can be changed in the resource/application.properties file.
 
 For the application to connect to your cluster, you need to update the MONGODB_CONNECTION_STRING variable in 
