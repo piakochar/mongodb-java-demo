@@ -74,7 +74,7 @@ you're running the application from, and add a MongoDB database user to your Atl
 these things can be found here: https://docs.atlas.mongodb.com/driver-connection/. On step 5 of these instructions, select
 Java as your driver language and version 3.6 or later.
 
-Once you've done this, run the following command from the src directory of this application to run it:
+Once you've done this, run the following command from the root directory of this application (the directory with pom.xml in it) to run it:
 `mvn spring-boot:run`. Then, open your browser and navigate to `localhost:8081` and you should see the homepage.
 
 ## Resources
