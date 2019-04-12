@@ -5,10 +5,8 @@ tailor it to your data!
 ## Overview
 
 Aside from the home page, are three pages on this site so far:
-1. /data - displays a count of the number of documents in the specified database and collection, which are taken in
-as query parameters. For example, if you wanted to view the count for the snails collection in the animals db, you
-would navigate to '/data?db=animals&collection=snails'.
-2. /views - displays the number of views each collection has had to date.
+1. /data - displays a count of the number of documents in the specified database and collection
+2. /analytics - displays the number of times each type of request has been made on the site
 3. /reviews - displays reviews left by users.
 
 This application creates a `siteData` database in your cluster and stores information about page views and user

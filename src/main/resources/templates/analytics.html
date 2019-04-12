@@ -2,26 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
-    <title>Views</title>
+    <title>Analytics</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <h2>Site Views</h2>
+    <h2>Site Analytics</h2>
     <div class="body-center">
         <table>
             <thead>
             <tr>
-                <th> Namespace </th>
-                <th> View Count </th>
+                <th> Request </th>
+                <th> Count </th>
             </tr>
             </thead>
             <tbody>
-                <tr th:if="${viewsByNamespace.empty}">
-                    <td colspan="2"> No Views Yet! </td>
+                <tr th:if="${requestsPerType.empty}">
+                    <td colspan="2"> No Requests Yet! </td>
                 </tr>
-                <tr th:each="view : ${viewsByNamespace}">
-                    <td th:text="${view.key}">hello</td>
-                    <td th:text="${view.value}">hi</td>
+                <tr th:each="request : ${requestsPerType}">
+                    <td th:text="${request.key}">hello</td>
+                    <td th:text="${request.value}">hi</td>
                 </tr>
             </tbody>
         </table>

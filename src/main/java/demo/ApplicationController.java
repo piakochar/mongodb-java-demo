@@ -2,7 +2,7 @@ package demo;
 
 import demo.dao.GenericDao;
 import demo.dao.ReviewsDao;
-import demo.dao.ViewsDao;
+import demo.dao.AnalyticsDao;
 import demo.model.Review;
 import java.util.Date;
 import java.util.Map;
@@ -25,12 +25,13 @@ public class ApplicationController {
     }
 
     @GetMapping("/data")
-    public String greeting(
-            @RequestParam(name="db", required=false, defaultValue="siteData") String dbName,
-            @RequestParam(name="collection", required=false, defaultValue="views") String collName,
-            Model model) {
+    public String greeting(Model model) {
+        AnalyticsDao.saveHttpRequest(new Date(), "GET", "/data");
 
-        ViewsDao.saveCollectionView(new Date(), dbName, collName);
+        /** db and collection being accessed -- change these to use these endpoints to use your own data */
+        final String dbName = "siteData";
+        final String collName = "analytics";
+
         final GenericDao dao = new GenericDao(dbName, collName);
 
         model.addAttribute("dbName", dbName);
@@ -43,24 +44,38 @@ public class ApplicationController {
 
     @PostMapping("/data")
     public RedirectView submitReview(@ModelAttribute Review review) {
+        AnalyticsDao.saveHttpRequest(new Date(), "POST", "/data");
+
         review.setDate(new Date());
         ReviewsDao.saveReview(review);
         return new RedirectView("/reviews");
     }
 
-    @GetMapping("/views")
-    public String userViews(Model model) {
+    @GetMapping("/analytics")
+    public String siteAnalytics(Model model) {
 
-        final Map<String, Integer> viewsByNamespace = ViewsDao.getViewsByNamespace();
-        model.addAttribute("viewsByNamespace", viewsByNamespace);
+        AnalyticsDao.saveHttpRequest(new Date(), "GET", "/analytics");
 
-        return "views";
+        final Map<String, Integer> requestsPerType = AnalyticsDao.getNumRequestsPerType();
+        model.addAttribute("requestsPerType", requestsPerType);
+
+        return "analytics";
     }
 
+    /**
+     * NOTE: this endpoint accepts a query parameter to determine how many reviews will be displayed on the page.
+     * The default value is 10, but if you want to see 5 reviews you would edit the URL to look like this:
+     *
+     * localhost:8081/reviews?limit=5
+     * */
     @GetMapping("/reviews")
-    public String reviews(Model model) {
+    public String reviews(
+            @RequestParam(name="limit", required=false, defaultValue="10") String numReviews,
+            Model model) {
 
-        model.addAttribute("reviews", ReviewsDao.findReviews(10));
+        AnalyticsDao.saveHttpRequest(new Date(), "GET", "/reviews");
+
+        model.addAttribute("reviews", ReviewsDao.findReviews(Integer.parseInt(numReviews)));
         return "reviews";
     }
 }
